@@ -5,7 +5,8 @@ Here is the process what Hospital was following:
 1. Person with symptoms came for testing & manually hospital staff was taking all the details
 2. When testing is done, sample ID is given to the user.
 3. Reports can be collected from the Hospital on the next day by showing the sample ID.
-To eliminate this manual interaction and revisiting of the person to collect his report.
+
+To eliminate this manual interaction and revisiting of the person to collect his report, it needs to be automated.
 
 
 ## Software Requirements
