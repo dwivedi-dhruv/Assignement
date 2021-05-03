@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock title %}
+<div class="container text-center">
+    {% block content %}
+    <h1 class="text-center">{{welcome}}</h1>
+    <hr>
+    <br>
+    <form action="" method="post" class="form ">
+        <class class="form-label-group-1 " >
+          {% csrf_token %}
+          <label>Age:</label>
+          <input placeholder="" name="age" type="number" required>
+          <br>
+          <label>Symptoms:</label>
+          <br>
+          <label>Fever:</label>
+          <input placeholder="" name="fever" type="checkbox">
+          <label>DryCough:</label>
+          <input placeholder="" name="drycough" type="checkbox">
+          <label>Tiredness:</label>
+          <input placeholder="" name="tiredness" type="checkbox">
+          <label>DifficultyBreathing:</label>
+          <input placeholder="" name="difficultybrething" type="checkbox">
+          <label>ChestPain:</label>
+          <input placeholder="" name="chestpain" type="checkbox">
+          <label>LossOfSpeech:</label>
+          <input placeholder="" name="lossofspeech" type="checkbox">
+          <br>
+          <label>Date:</label>
+          <input id="datefield" type='date' min='1899-01-01' max='2000-13-13' placeholder="date" name="date" required> 
+          <br>
+          <button style="align-items : center; margin-top: 5px;margin-left: 25px;"type="submit" class="btn btn-warning">Submit</button>
+        </class>
+        <hr>
+        <h3>Recent Results: <br>SampleID: <small>{{recent.sampleid}}  </small> <br>Status: <small> {{recent.status}}</small></h3>
+        </div>
+        
+    </form>
+    <script>
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+      if(dd<10){
+              dd='0'+dd
+          } 
+          if(mm<10){
+              mm='0'+mm
+          } 
+
+      today = yyyy+'-'+mm+'-'+dd;
+      document.getElementById("datefield").setAttribute("max", today);
+    </script>
+     
+    
+    {% endblock content %}
+</div>
+

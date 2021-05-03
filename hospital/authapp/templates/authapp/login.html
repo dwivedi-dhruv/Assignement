@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5><hr>
+            {% if form.errors %}
+            <p class="text-center" >
+                Your username and password didn't match.Please
+                Please try again.
+            </p>
+            {% else %}
+            
+            {% endif %}
+            <form action="" method="post" class="form ">
+              <div class="form-label-group">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <p><a href="{% url 'authapp:password_reset' %}">Forgotten your password?</a></p>
+                {% buttons %}
+                <input type="hidden" name="next" value="{{ next }}" />
+                <button type="submit" class="btn btn-primary">Submit</button>
+                {% endbuttons %}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+
+

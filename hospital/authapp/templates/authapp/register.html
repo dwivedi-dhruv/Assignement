@@ -1,0 +1,90 @@
+
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block title %}Registration
+
+{% endblock title %}
+{% block content %}
+<div class="container">
+  <h3>
+    <center>
+
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+
+    </center>
+</h3>
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h2 class="card-title text-center"><b>Register</b></h2><hr>
+            {% if form.errors %}
+            <p class="text-center" >
+                Please fill the details correctly.
+            </p>
+            {% else %}
+            {% endif %}
+
+           
+          
+            <form action="" method="post" class="form ">
+              <div class="form-label-group">
+                {% csrf_token %}
+                <label>Username:</label>
+                <br>
+                <input placeholder="Username" name="username" type="username" required> 
+                <br>
+                <small class="help-block"></small>
+                <br>
+                <label>First Name:</label>
+                <br>
+                <input placeholder="First Name" name="first_name" type="text" required> 
+                <br>
+                <small class="help-block">Required.First Letter to be capital</small>
+                <br>
+                <label>Last Name:</label>
+                <br>
+                <input placeholder="Last Name" name="last_name" type="text" required> 
+                <br>
+                <label>Email:</label>
+                <br>
+                <input placeholder="Email" name="email" type="email" required> 
+                <br>
+                <small class="help-block">Required.@gmail.com and @yahoo.com only</small>
+                <br>
+                <label>Password:</label>
+                <br>
+                <input placeholder="Password" name="password" type="password" required> 
+                <br>
+                <small class="help-block">Required.Must Contain One Capital, One Small, Numerical Value & a Special Character & minimum length is 8 Characters</small>
+                <br>
+                <label>Confirm Password:</label>
+                <br>
+                <input placeholder="Confirm Password" name="password2" type="password" required> 
+                <br>
+                <label>Phone Number:</label>
+                <br>
+                <input placeholder="Phone Number" name="phone_number" type="text" required> 
+                <br>
+                <small class="help-block">Required.Must be of 10 Digital & should not start with zero</small>
+                <br>
+                <label>Aadhar Number:</label>
+                <br>
+                <input placeholder="Aadhar Number" name="aadhar_number" type="text" required> 
+                <br>
+                <small class="help-block">Required.Enter a valid number.</small>
+                <br>
+                {% buttons %}
+                <input type="hidden" name="next" value="{{ next }}" />
+                <button type="submit" class="btn btn-primary">Register</button>
+                {% endbuttons %}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

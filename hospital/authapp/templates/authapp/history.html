@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}History{% endblock title %}
+<div class="container text-center">
+    {% block content %}
+    <h1 class="text-center">{{welcome}}</h1>
+    <br>
+    <hr>
+
+    <table class="table" >
+        <thead class="thead-dark">
+            <tr>
+            <th>SrNo.</th>
+            <th>Sample_ID</th>
+            <th>Status</th>
+            </tr>
+        </thead>
+        {%for r in result %}
+            <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{r.sampleid}}</td>
+            <td>{{r.status}}</td>
+            </tr>
+        {%endfor%}
+    </table>
+    <hr>
+    
+    {% endblock content %}
+</div>

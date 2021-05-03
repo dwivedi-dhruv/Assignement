@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">COVID-Testing <i class="fas fa-boxes"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            {% if request.user.is_authenticated %}
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'authapp:dashboard' %}">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authapp:account' %}">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'authapp:history' %}">History</a>
+                </li>
+            </ul>
+            {% endif %}
+            <span>
+                {% if request.user.is_authenticated %}
+                Hello
+                @ <i>{{user.username}}</i>
+                <a href="{% url 'authapp:logout' %}" class="btn btn-danger">Logout</a>
+               
+                {% else %}
+                <div class="login__left">
+                    <a href="{% url 'authapp:login' %}" class="btn btn-secondary">Log-in</a>
+                    <a href="{% url 'authapp:register' %}" class="btn btn-info ">Register</a>
+                </div>
+
+                {% endif %}
+
+            </span>
+        </div>
+    </div>
+</nav>
+
+

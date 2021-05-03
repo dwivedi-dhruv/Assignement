@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock title %}
+<div class="container text-center">
+    {% block content %}
+    <h1 class="text-center">{{welcome}}</h1>
+    <hr>
+    <br>
+    <h3 >Name: {{user.first_name}} {{user.last_name}}</h3>
+    <h3 >Email: {{user.email}}</h3>
+    <a href="{% url 'authapp:edit' %}" class="btn btn-warning">Edit Your Profile</a> or
+    <a href="{% url 'authapp:password_change' %}" class="btn btn-warning">Change your password</a>
+    <hr>
+{% endblock content %}

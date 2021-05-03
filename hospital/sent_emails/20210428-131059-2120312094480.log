@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: dhruvchbs24@gmail.com
+Date: Wed, 28 Apr 2021 07:40:59 -0000
+Message-ID: <161959565993.8916.10032224525036229781@DESKTOP-7SDHT7P>
+
+Someone asked for password reset for email dhruvchbs24@gmail.com.Follow the Link below
+http://127.0.0.1:8000{% url "authapp:password_reset_confirm"
+uidb64=uid token=token %}
+-------------------------------------------------------------------------------
